@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    #store as instance variables so you can access the nested post/:id/comments route in the form
     @post = Post.find(params[:id])
     @comment = @post.comments.build
     @comments = Post.find(params[:id]).comments
