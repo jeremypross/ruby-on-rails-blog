@@ -12,8 +12,7 @@ class PostsController < ApplicationController
     @comments = Post.find(params[:id]).comments
   end
 
-  # looked up this SO article for reference: http://stackoverflow.com/questions/2034700/form-for-with-nested-resources
-
+  # used this SO article for reference: http://stackoverflow.com/questions/2034700/form-for-with-nested-resources
 
   def create
     #mass assignment of parameters - so you don't have to code these out by hand every time
@@ -29,11 +28,7 @@ class PostsController < ApplicationController
 
   def update
     post_updated = Post.find(params[:id]).update_attributes(post_params)
-    if post_updated
-      head 200
-    else
-      head 400
-    end
+    redirect_to posts_path
   end
 
   def destroy
