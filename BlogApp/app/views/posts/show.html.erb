@@ -54,14 +54,16 @@
             <!-- Posted Comments -->
 
             <!-- Comment -->
+            <% @comments.each do |c| %>
             <div class="media">
                 <div class="media-body">
-                    <h4 class="media-heading">Start Bootstrap
-                        <small>August 25, 2014</small>
+                    <h4 class="media-heading">
+                        <small><%= c.created_at.strftime("%B %e, %Y") %></small>
                     </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                <%= c.comment_text %>
                 </div>
             </div>
+            <% end %>
 
 
         </div>

@@ -8,8 +8,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new(:post=>@post)
+    @comment = @post.comments.build
+    @comments = Post.find(params[:id]).comments
   end
+
+  # looked up this SO article for reference: http://stackoverflow.com/questions/2034700/form-for-with-nested-resources
+
 
   def create
     #mass assignment of parameters - so you don't have to code these out by hand every time
